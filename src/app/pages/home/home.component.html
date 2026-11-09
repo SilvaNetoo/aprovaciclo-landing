@@ -1,0 +1,357 @@
+<div
+    class="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-600 selection:text-white relative overflow-hidden">
+
+    <!-- Glow Effects de Fundo (Glassmorphism) -->
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-600/15 blur-[140px] rounded-full pointer-events-none">
+    </div>
+    <div
+        class="absolute top-[40%] -left-[200px] w-[500px] h-[500px] bg-violet-600/10 blur-[160px] rounded-full pointer-events-none">
+    </div>
+
+    <!-- 1. HEADER / NAVBAR FLUTUANTE -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Logo & Badge -->
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shadow-lg shadow-indigo-500/20">
+                    <img src="assets/icon.png" alt="AprovaCiclo Icon" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span
+                        class="text-lg font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">AprovaCiclo</span>
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Local-First • 100%
+                            Offline</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links de Navegação Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#recursos" class="hover:text-indigo-400 transition-colors">Recursos</a>
+                <a href="#metodo" class="hover:text-indigo-400 transition-colors">Método</a>
+                <a routerLink="/politica-privacidade" class="hover:text-indigo-400 transition-colors">Política de
+                    Privacidade</a>
+            </nav>
+
+            <!-- CTA Rápido -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://play.google.com/store" target="_blank"
+                    class="px-5 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2">
+                    <i-lucide [name]="Download" class="w-4 h-4"></i-lucide>
+                    Baixar para Android
+                </a>
+            </div>
+
+            <!-- Botão Menu Mobile -->
+            <button (click)="toggleMobileMenu()"
+                class="md:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300">
+                <i-lucide [name]="mobileMenuOpen() ? X : Menu" class="w-5 h-5"></i-lucide>
+            </button>
+        </div>
+
+        <!-- Menu Dropdown Mobile -->
+        @if (mobileMenuOpen()) {
+        <div
+            class="md:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-6 flex flex-col gap-4 backdrop-blur-2xl">
+            <a href="#recursos" (click)="toggleMobileMenu()" class="text-slate-300 font-medium text-sm">Recursos</a>
+            <a href="#metodo" (click)="toggleMobileMenu()" class="text-slate-300 font-medium text-sm">Método</a>
+            <a routerLink="/politica-privacidade" (click)="toggleMobileMenu()"
+                class="text-slate-300 font-medium text-sm">Política de Privacidade</a>
+            <a href="#download" (click)="toggleMobileMenu()"
+                class="w-full py-3 rounded-xl bg-indigo-600 text-white font-bold text-center text-xs uppercase tracking-wider shadow-lg">
+                Baixar para Android
+            </a>
+        </div>
+        }
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Coluna de Textos -->
+                <div class="lg:col-span-7 flex flex-col items-start text-left">
+
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6 shadow-sm">
+                        <i-lucide [name]="Zap" class="w-4 h-4 text-indigo-400"></i-lucide>
+                        <span>O Fim do Cronograma Engessado para Concursos</span>
+                    </div>
+
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] mb-6">
+                        Estude por <span
+                            class="bg-gradient-to-r from-indigo-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">Ciclos
+                            Flexíveis Semanais</span>, Domine Editais e Treine Redações com IA.
+                    </h1>
+
+                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+                        Esqueça a culpa por perder um dia de estudo. O AprovaCiclo gerencia suas metas semanais sem
+                        acumular atrasos, roda 100% offline no seu SQLite sem exigir login e conta com auditoria
+                        inteligente de discursivas.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
+                        id="download">
+                        <a href="https://play.google.com/store" target="_blank"
+                            class="px-8 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-sm uppercase tracking-wider transition-all shadow-xl shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 group">
+                            <i-lucide [name]="Download"
+                                class="w-5 h-5 group-hover:translate-y-0.5 transition-transform"></i-lucide>
+                            Disponível na Google Play
+                        </a>
+                        <div
+                            class="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs text-slate-400 font-medium">
+                            <i-lucide [name]="ShieldCheck" class="w-4 h-4 text-emerald-400"></i-lucide>
+                            <span>Sem cadastro • Seus dados seguros no aparelho</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna do Mockup / Preview Interativo -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div
+                        class="absolute -inset-1 rounded-[36px] bg-gradient-to-r from-indigo-500 to-emerald-500 opacity-30 blur-xl">
+                    </div>
+
+                    <div
+                        class="relative w-full max-w-sm bg-slate-900/90 rounded-[32px] border border-slate-800/80 p-6 shadow-2xl backdrop-blur-2xl flex flex-col gap-5">
+
+                        <!-- Simulador Header App -->
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-2.5">
+                                <div
+                                    class="w-8 h-8 rounded-xl bg-indigo-600/20 flex items-center justify-center border border-indigo-500/30">
+                                    <i-lucide [name]="Smartphone" class="w-4 h-4 text-indigo-400"></i-lucide>
+                                </div>
+                                <div>
+                                    <h4 class="text-white text-xs font-bold">Painel do Concurseiro</h4>
+                                    <p class="text-slate-400 text-[10px]">PRF 2026 • Ciclo Ativo</p>
+                                </div>
+                            </div>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">92%
+                                Concluído</span>
+                        </div>
+
+                        <!-- Cards de Progresso Simulados -->
+                        <div class="space-y-3">
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex items-center justify-between">
+                                <div>
+                                    <span
+                                        class="text-slate-400 text-[10px] font-semibold uppercase tracking-wider">Direito
+                                        Constitucional</span>
+                                    <p class="text-white text-xs font-bold">Meta: 06h / sem</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-indigo-600/20 flex items-center justify-center text-indigo-400 font-bold text-xs">
+                                    85%
+                                </div>
+                            </div>
+
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex items-center justify-between">
+                                <div>
+                                    <span
+                                        class="text-slate-400 text-[10px] font-semibold uppercase tracking-wider">Legislação
+                                        de Trânsito</span>
+                                    <p class="text-white text-xs font-bold">Meta: 10h / sem</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-emerald-600/20 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                                    100%
+                                </div>
+                            </div>
+
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 flex items-center justify-between">
+                                <div>
+                                    <span
+                                        class="text-slate-400 text-[10px] font-semibold uppercase tracking-wider">Redação
+                                        Discursiva (IA)</span>
+                                    <p class="text-white text-xs font-bold">Simulado CEBRASPE</p>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-violet-600/20 flex items-center justify-center text-violet-400 font-bold text-xs">
+                                    Nota 9.4
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 text-center">
+                            <p class="text-indigo-300 text-[11px] font-medium">✨ Próximo bloco: Língua Portuguesa (Timer
+                                ativo)</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SHOWCASE DE RECURSOS -->
+    <section id="recursos" class="py-24 border-t border-slate-900 bg-slate-950/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white mb-4">
+                    Construído para quem leva a sério a <span class="text-indigo-400">aprovação</span>
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Ferramentas de alta performance desenvolvidas sob a ótica de concurseiros experientes. Zero
+                    distração, foco absoluto.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-indigo-500/50 transition-all group">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i-lucide [name]="Calendar" class="w-6 h-6"></i-lucide>
+                    </div>
+                    <h3 class="text-white text-lg font-bold mb-3">Ciclo Semanal Flexível</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Diga adeus aos cronogramas rígidos que geram ansiedade. Defina metas de horas semanais por
+                        matéria. Se houver um imprevisto, o ciclo simplesmente retoma de onde parou na próxima sessão,
+                        sem acúmulo de atrasos.
+                    </p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-violet-500/50 transition-all group">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i-lucide [name]="Cpu" class="w-6 h-6"></i-lucide>
+                    </div>
+                    <h3 class="text-white text-lg font-bold mb-3">Central de Redações Discursivas & IA</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Simule provas com cronômetro oficial de bancas (CEBRASPE, FGV, FCC, VUNESP). Fotografe sua
+                        redação manuscrita e utilize o fluxo integrado com IA para obter auditoria detalhada do espelho
+                        de prova e notas precisas.
+                    </p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-amber-500/50 transition-all group">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i-lucide [name]="Clock" class="w-6 h-6"></i-lucide>
+                    </div>
+                    <h3 class="text-white text-lg font-bold mb-3">Revisão Espaçada Inteligente</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Controle automatizado da curva de esquecimento (intervalos configuráveis de 3 ou 7 dias). O app
+                        agenda suas revisões de forma equilibrada para garantir que o conteúdo entre na sua memória de
+                        longo prazo.
+                    </p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl hover:border-emerald-500/50 transition-all group">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i-lucide [name]="ShieldCheck" class="w-6 h-6"></i-lucide>
+                    </div>
+                    <h3 class="text-white text-lg font-bold mb-3">Arquitetura Local-First & Privacidade</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sem cadastro obrigatório e sem servidores em nuvem. Seus dados de estudo ficam salvos com total
+                        segurança no banco SQLite local do seu aparelho, com opção de exportação de backup em JSON a
+                        qualquer momento.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SEÇÃO "COMO FUNCIONA" -->
+    <section id="metodo" class="py-24 border-t border-slate-900 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white mb-4">
+                    Simples de configurar, poderoso na <span class="text-indigo-400">execução</span>
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Três passos rápidos para transformar a sua rotina de estudos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/40 border border-slate-800/80 flex flex-col items-start relative">
+                    <span
+                        class="absolute -top-4 left-8 w-10 h-10 rounded-2xl bg-indigo-600 text-white font-black text-sm flex items-center justify-center shadow-lg shadow-indigo-600/30">01</span>
+                    <h3 class="text-white text-base font-bold mt-4 mb-2">Importe ou Escolha o Edital</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Selecione editais prontos para carreiras policiais (PRF, PF), tribunais, bancário e muito mais,
+                        ou configure suas próprias matérias e níveis (do Iniciante ao Avançado).
+                    </p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/40 border border-slate-800/80 flex flex-col items-start relative">
+                    <span
+                        class="absolute -top-4 left-8 w-10 h-10 rounded-2xl bg-indigo-600 text-white font-black text-sm flex items-center justify-center shadow-lg shadow-indigo-600/30">02</span>
+                    <h3 class="text-white text-base font-bold mt-4 mb-2">Defina Horas e Execute Blocos</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Informe suas horas livres diárias, gere seu cronograma com um clique e comece a executar os
+                        blocos de forma simples com a ajuda do cronômetro integrado para organizar cada disciplina.
+                    </p>
+                </div>
+
+                <div
+                    class="p-8 rounded-3xl bg-slate-900/40 border border-slate-800/80 flex flex-col items-start relative">
+                    <span
+                        class="absolute -top-4 left-8 w-10 h-10 rounded-2xl bg-indigo-600 text-white font-black text-sm flex items-center justify-center shadow-lg shadow-indigo-600/30">03</span>
+                    <h3 class="text-white text-base font-bold mt-4 mb-2">Estude com IA, Questões & Revisões</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        Potencialize sua preparação com inteligência artificial tanto nas provas objetivas, dominando
+                        teoria, gerando questões e flashcards, quanto na Central de Redações, auditando textos e
+                        espelhos de prova para acompanhar sua evolução gráfica rumo à posse.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. FOOTER CORPORATIVO MODERNO -->
+    <footer class="mt-auto border-t border-slate-900 bg-slate-950 py-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden shadow-lg shadow-indigo-500/20">
+                    <img src="assets/icon.png" alt="AprovaCiclo Icon" class="w-full h-full object-cover">
+                </div>
+                <span class="text-white font-bold text-sm tracking-tight">AprovaCiclo © 2026</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-xs text-slate-400">
+                <a routerLink="/politica-privacidade" class="hover:text-indigo-400 transition-colors">Política de
+                    Privacidade</a>
+                <a href="mailto:suporte.aprovaciclo@gmail.com"
+                    class="hover:text-indigo-400 transition-colors">suporte.aprovaciclo@gmail.com</a>
+            </div>
+
+            <p class="text-[11px] text-slate-500 text-center md:text-right">
+                Desenvolvido para concurseiros de alta performance.
+            </p>
+
+        </div>
+    </footer>
+
+</div>
