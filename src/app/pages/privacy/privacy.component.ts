@@ -33,9 +33,9 @@ import { LucideAngularModule, Shield, ArrowLeft } from 'lucide-angular';
             </p>
 
             <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 space-y-2">
-              <h3 class="text-emerald-400 font-bold text-xs uppercase tracking-wider">1. Ausência de Cadastro e Servidores (Local-First)</h3>
+              <h3 class="text-emerald-400 font-bold text-xs uppercase tracking-wider">1. Sem Cadastro e Uso Desconectado</h3>
               <p class="text-xs text-slate-300">
-                O AprovaCiclo <strong class="text-white">não exige criação de conta, login ou senha</strong>. Não possuímos servidores em nuvem ou bancos de dados centralizados para armazenar suas informações. Todos os ciclos de estudo, disciplinas, editais verticalizados, cronogramas e marcações de tempo são salvos unicamente no armazenamento interno do seu próprio aparelho (banco de dados SQLite local).
+                O AprovaCiclo <strong class="text-white">não exige criação de conta, login ou senha</strong>. Todos os seus ciclos de estudo, disciplinas, editais, cronogramas e marcações de tempo são salvos unicamente no armazenamento seguro do seu próprio dispositivo.
               </p>
             </div>
 
@@ -56,7 +56,7 @@ import { LucideAngularModule, Shield, ArrowLeft } from 'lucide-angular';
             <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 space-y-2">
               <h3 class="text-slate-200 font-bold text-xs uppercase tracking-wider">4. Contato de Suporte</h3>
               <p class="text-xs text-slate-400">
-                Em caso de dúvidas sobre esta política ou funcionamento do app, entre em contato através do e-mail: <span class="text-indigo-300 font-semibold">suporte.aprovaciclo&#64;gmail.com</span>
+                Em caso de dúvidas sobre esta política ou funcionamento do app, entre em contato através do e-mail: <span class="text-indigo-300 font-semibold">labsnuvora&#64;gmail.com</span>
               </p>
             </div>
           </div>
